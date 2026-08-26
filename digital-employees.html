@@ -258,7 +258,7 @@
                             </div>
                             <div class="p-3 sm:p-4 md:p-6">
                                 <div class="grid grid-cols-1 xl:grid-cols-[1.2fr_0.8fr] gap-6 items-start">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="100%" height="100%" class="w-full h-auto rounded-2xl">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="100%" height="100%">
                                         <defs>
                                             <style>
                                             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap');
@@ -271,11 +271,13 @@
                                                 --color-supervisor-bg: #1E293B;  
                                                 --color-supervisor-text: #F8FAFC;
                                                 
-                                                /* AI Agents - Collaborative Tech Blue */
-                                                --color-agent-bg: #E0F2FE;       
+                                                /* AI Agents - Color Swapped (was blue bg / white inner) */
+                                                /* New Outer Background (was white inner) */
+                                                --color-agent-bg: rgba(255, 255, 255, 0.75);       
                                                 --color-agent-border: #7DD3FC;
                                                 --color-agent-text: #0369A1;
-                                                --color-agent-inner-bg: rgba(255, 255, 255, 0.75);
+                                                /* New Inner Background (was blue agent bg) */
+                                                --color-agent-inner-bg: #E0F2FE; 
                                                 
                                                 /* Guardrails Layer - Secure Green */
                                                 --color-semantic-bg: #D1FAE5;    
@@ -328,7 +330,7 @@
                                         </defs>
 
                                         <!-- Section Title -->
-                                        <text x="50" y="40" class="font-sans" fill="#64748B" font-size="12" font-weight="600" letter-spacing="1.5">SYSTEM ARCHITECTURE / HUMAN-AGENT COLLABORATION</text>
+                                        <text x="50" y="40" class="font-sans" fill="#64748B" font-size="12" font-weight="600" letter-spacing="1.5">SYSTEM ARCHITECTURE / HUMAN-AGENT COOPERATION</text>
 
                                         <!-- HUMAN SUPERVISOR -->
                                         <rect x="50" y="70" width="900" height="70" class="box box-human" />
@@ -388,8 +390,8 @@
                                         <path d="M 382.5 460 L 382.5 512" class="arrow" marker-end="url(#arrowhead)" />
                                         <path d="M 617.5 460 L 617.5 512" class="arrow" marker-end="url(#arrowhead)" />
                                         <path d="M 852.5 460 L 852.5 512" class="arrow" marker-end="url(#arrowhead)" />
-
                                     </svg>
+
 
                                     <div class="rounded-3xl border border-outline-variant bg-surface-container-low p-6 shadow-sm">
                                         <h4 class="font-headline text-2xl md:text-headline-md text-on-surface mb-4">Human employees stay in charge</h4>
