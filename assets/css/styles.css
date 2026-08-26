@@ -2268,11 +2268,6 @@ input:where([type='file']):focus {
      object-position: left;
 }
 
-.object-center {
-  -o-object-position: center;
-     object-position: center;
-}
-
 .p-10 {
   padding: 2.5rem;
 }
@@ -2442,6 +2437,16 @@ input:where([type='file']):focus {
   font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
@@ -2470,23 +2475,10 @@ input:where([type='file']):focus {
   font-weight: 400;
 }
 
-.text-display-lg {
-  font-size: 48px;
-  line-height: 56px;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-}
-
 .text-display-xl {
   font-size: 180px;
   line-height: 1;
   font-weight: 500;
-}
-
-.text-headline-lg {
-  font-size: 32px;
-  line-height: 40px;
-  font-weight: 600;
 }
 
 .text-headline-md {
@@ -2522,16 +2514,6 @@ input:where([type='file']):focus {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
-  line-height: 2.25rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
 }
 
 .font-bold {
@@ -2782,11 +2764,6 @@ input:where([type='file']):focus {
 .hover\:-translate-y-1:hover {
   --tw-translate-y: -0.25rem;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.hover\:border-primary:hover {
-  --tw-border-opacity: 1;
-  border-color: rgb(26 69 210 / var(--tw-border-opacity, 1));
 }
 
 .hover\:bg-blue-700:hover {
@@ -3061,17 +3038,6 @@ input:where([type='file']):focus {
     font-size: 24px;
     line-height: 32px;
     font-weight: 600;
-  }
-
-  .md\:text-lg {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
-  }
-
-  .md\:text-body-md {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
   }
 }
 
