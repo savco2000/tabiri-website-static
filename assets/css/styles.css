@@ -2979,6 +2979,10 @@ input:where([type='file']):focus {
     grid-column: span 8 / span 8;
   }
 
+  .md\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
   .md\:mb-12 {
     margin-bottom: 3rem;
   }
@@ -3118,6 +3122,11 @@ input:where([type='file']):focus {
     line-height: 32px;
     font-weight: 600;
   }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -3199,6 +3208,10 @@ input:where([type='file']):focus {
 
   .lg\:gap-8 {
     gap: 2rem;
+  }
+
+  .lg\:whitespace-nowrap {
+    white-space: nowrap;
   }
 
   .lg\:p-10 {
