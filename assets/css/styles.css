@@ -828,6 +828,30 @@ input:where([type='file']):focus {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.nav-dropdown-trigger.nav-dropdown-trigger-active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 238 242 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(26 69 210 / var(--tw-text-opacity, 1));
+}
+
+.nav-dropdown-trigger.nav-dropdown-trigger-active:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 238 242 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(26 69 210 / var(--tw-text-opacity, 1));
+}
+
+.nav-dropdown-trigger.nav-dropdown-trigger-active:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.nav-dropdown-trigger.nav-dropdown-trigger-active:hover:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
 .nav-cta {
   display: inline-flex;
   align-items: center;
