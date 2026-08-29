@@ -2082,11 +2082,6 @@ input:where([type='file']):focus {
   border-color: rgb(255 255 255 / 0.2);
 }
 
-.bg-\[\#1a45d2\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(26 69 210 / var(--tw-bg-opacity, 1));
-}
-
 .bg-\[\#e2e7ff\] {
   --tw-bg-opacity: 1;
   background-color: rgb(226 231 255 / var(--tw-bg-opacity, 1));
@@ -2164,10 +2159,6 @@ input:where([type='file']):focus {
 
 .bg-primary\/5 {
   background-color: rgb(26 69 210 / 0.05);
-}
-
-.bg-primary\/90 {
-  background-color: rgb(26 69 210 / 0.9);
 }
 
 .bg-surface {
@@ -2345,11 +2336,6 @@ input:where([type='file']):focus {
   padding-right: 0.25rem;
 }
 
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -2408,11 +2394,6 @@ input:where([type='file']):focus {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.py-5 {
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
 }
 
 .py-6 {
@@ -2496,6 +2477,11 @@ input:where([type='file']):focus {
   line-height: 2.5rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -2558,16 +2544,6 @@ input:where([type='file']):focus {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
 }
 
 .font-bold {
@@ -2852,10 +2828,6 @@ input:where([type='file']):focus {
   opacity: 0.8;
 }
 
-.hover\:opacity-90:hover {
-  opacity: 0.9;
-}
-
 .hover\:shadow-lg:hover {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -2981,16 +2953,16 @@ input:where([type='file']):focus {
     grid-column: span 2 / span 2;
   }
 
+  .md\:col-span-3 {
+    grid-column: span 3 / span 3;
+  }
+
   .md\:col-span-4 {
     grid-column: span 4 / span 4;
   }
 
   .md\:col-span-8 {
     grid-column: span 8 / span 8;
-  }
-
-  .md\:col-span-3 {
-    grid-column: span 3 / span 3;
   }
 
   .md\:mb-12 {
@@ -3069,10 +3041,6 @@ input:where([type='file']):focus {
     padding: 3rem;
   }
 
-  .md\:p-16 {
-    padding: 4rem;
-  }
-
   .md\:p-6 {
     padding: 1.5rem;
   }
@@ -3133,9 +3101,9 @@ input:where([type='file']):focus {
     font-weight: 600;
   }
 
-  .md\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 
