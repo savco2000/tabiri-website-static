@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "concurrently -k -n CSS,WEB -c cyan,green \"npm:watch:css\" \"npm:serve\"",
+    "build": "npm run build:icons && npm run build:css",
+    "build:icons": "node scripts/build-icon-font.js",
     "build:css": "tailwindcss -c tailwind.config.js -i ./src/styles/tailwind.css -o ./assets/css/styles.css --minify",
     "watch:css": "tailwindcss -c tailwind.config.js -i ./src/styles/tailwind.css -o ./assets/css/styles.css --watch",
     "serve": "node scripts/serve.js"

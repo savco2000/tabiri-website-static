@@ -9,6 +9,8 @@
   const mainContent = document.querySelector("main");
   const mobileNavLinks = mobileNavPanel.querySelectorAll("a");
 
+  mobileNavPanel.setAttribute("inert", "");
+
   const getFocusableInPanel = () =>
     Array.from(
       mobileNavPanel.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])')
@@ -20,6 +22,7 @@
   const closeMobileNav = () => {
     mobileNavPanel.classList.remove("is-open");
     mobileNavPanel.setAttribute("aria-hidden", "true");
+    mobileNavPanel.setAttribute("inert", "");
     mobileNavToggle.setAttribute("aria-expanded", "false");
     mobileNavToggle.setAttribute("aria-label", "Open site navigation");
     mobileNavToggle.querySelector(".material-symbols-outlined").textContent = "menu";
@@ -33,6 +36,7 @@
   const openMobileNav = () => {
     mobileNavPanel.classList.add("is-open");
     mobileNavPanel.setAttribute("aria-hidden", "false");
+    mobileNavPanel.removeAttribute("inert");
     mobileNavToggle.setAttribute("aria-expanded", "true");
     mobileNavToggle.setAttribute("aria-label", "Close site navigation");
     mobileNavToggle.querySelector(".material-symbols-outlined").textContent = "close";
