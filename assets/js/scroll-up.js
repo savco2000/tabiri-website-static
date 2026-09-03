@@ -1,5 +1,14 @@
 (() => {
   const scrollBtn = document.getElementById('scrollUpBtn');
+
+  if (!scrollBtn) {
+    return;
+  }
+
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
       scrollBtn.classList.remove('hidden', 'translate-y-4', 'opacity-0');
