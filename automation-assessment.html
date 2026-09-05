@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="description" content="Tabiri Analytics builds secure AI employees that automate enterprise workflows while protecting sensitive data.">
+    <meta name="description" content="Take Tabiri Analytics' five-question assessment to see whether your business workflows are ready for secure AI automation.">
     <link rel="canonical" href="https://tabirianalytics.com/automation-assessment.html">
-    <meta property="og:title" content="Secure Enterprise AI Automation | Tabiri Analytics">
-    <meta property="og:description" content="Deploy secure, agentic AI teammates for operations, service, and compliance-intensive environments.">
+    <meta property="og:title" content="Automation Readiness Assessment | Tabiri Analytics">
+    <meta property="og:description" content="Answer five quick questions to discover whether your business is a good candidate for secure AI automation.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tabirianalytics.com/automation-assessment.html">
     <title>Automation Readiness Assessment | Tabiri Analytics</title>
@@ -96,30 +96,95 @@
         </div>
     </nav>
 
-    <main class="min-h-[70vh] flex items-center justify-center px-gutter py-6 md:py-8 bg-surface-container-lowest">
-        <section class="w-full max-w-3xl">
-            <article class="trust-card text-center relative overflow-hidden py-6 md:py-8">
-                <div class="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-primary/10 blur-3xl"></div>
-                <div class="relative z-10">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-outline-variant bg-surface-container-low mb-4">
-                        <span class="material-symbols-outlined icon-size-sm text-primary">auto_awesome</span>
-                        <span class="font-label text-label-sm text-on-surface uppercase tracking-wider">Coming soon</span>
-                    </div>
-                    <h1 class="font-headline text-4xl md:text-display-lg text-on-background mb-3">Automation assessment preview</h1>
-                    <p class="font-body text-body-md text-on-surface-variant max-w-2xl mx-auto mb-6">
-                        This space is being prepared for a short automation assessment experience. While the quiz is being built, we’re sharing a simple placeholder that introduces the concept and sets expectations.
-                    </p>
-                    <div class="max-w-xl mx-auto rounded-xl border border-outline-variant bg-surface-container-low p-6 text-left">
-                        <p class="font-label text-label-sm text-primary uppercase tracking-wider mb-3">What’s next</p>
-                        <ul class="space-y-3 text-body-md text-on-surface-variant">
-                            <li>• A concise assessment that helps visitors evaluate their automation readiness</li>
-                            <li>• A short set of scored questions tailored to practical workflows</li>
-                            <li>• Clear next steps based on the results</li>
-                        </ul>
-                    </div>
-                    <a class="btn-primary w-full sm:w-auto mt-6" href="/">Return to Homepage</a>
+    <main class="pt-24 md:pt-28" id="automation-assessment-main">
+        <section class="relative border-b border-outline-variant bg-surface-container-lowest px-gutter py-12 md:py-14">
+            <div class="mx-auto max-w-4xl text-center">
+                <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container-low px-3 py-1">
+                    <span class="material-symbols-outlined icon-size-sm text-primary">checklist</span>
+                    <span class="font-label text-label-sm text-on-surface">Five questions · About two minutes</span>
                 </div>
-            </article>
+                <h1 class="mb-5 font-headline text-4xl text-on-background md:text-display-lg">Is Your Business Ready for <span class="text-primary">AI Automation?</span></h1>
+                <p class="mx-auto max-w-2xl font-body text-body-lg text-on-surface-variant">Assess one workflow that consumes your team's time. You will get an immediate recommendation based on its volume, structure, systems, and oversight needs.</p>
+            </div>
+        </section>
+
+        <section class="border-b border-outline-variant bg-surface-container-low px-gutter py-10 md:py-12">
+            <div class="mx-auto max-w-4xl">
+                <form class="trust-card-no-hover space-y-8" id="automation-assessment-form">
+                    <fieldset>
+                        <legend class="mb-4 font-headline text-headline-md text-on-surface"><span class="mr-2 font-label text-label-md text-primary">01</span> How often does the workflow repeat?</legend>
+                        <div class="grid gap-3 sm:grid-cols-3">
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="frequency" required type="radio" value="0"><span class="text-body-sm">A few times a month</span></label>
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="frequency" type="radio" value="1"><span class="text-body-sm">Several times a week</span></label>
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="frequency" type="radio" value="2"><span class="text-body-sm">Daily or continuously</span></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mb-4 font-headline text-headline-md text-on-surface"><span class="mr-2 font-label text-label-md text-primary">02</span> How consistent are the steps and decisions?</legend>
+                        <div class="grid gap-3 sm:grid-cols-3">
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="consistency" required type="radio" value="0"><span class="text-body-sm">Mostly unique each time</span></label>
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="consistency" type="radio" value="1"><span class="text-body-sm">A repeatable core with exceptions</span></label>
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="consistency" type="radio" value="2"><span class="text-body-sm">Clear rules and standard steps</span></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mb-4 font-headline text-headline-md text-on-surface"><span class="mr-2 font-label text-label-md text-primary">03</span> Where does the work happen?</legend>
+                        <div class="grid gap-3 sm:grid-cols-3">
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="systems" required type="radio" value="0"><span class="text-body-sm">Mostly offline or unstructured</span></label>
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="systems" type="radio" value="1"><span class="text-body-sm">Across email and documents</span></label>
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="systems" type="radio" value="2"><span class="text-body-sm">In connected business software</span></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mb-4 font-headline text-headline-md text-on-surface"><span class="mr-2 font-label text-label-md text-primary">04</span> What impact does the manual work have?</legend>
+                        <div class="grid gap-3 sm:grid-cols-3">
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="impact" required type="radio" value="0"><span class="text-body-sm">Little measurable impact</span></label>
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="impact" type="radio" value="1"><span class="text-body-sm">Some delay or avoidable cost</span></label>
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="impact" type="radio" value="2"><span class="text-body-sm">Backlogs, errors, or lost capacity</span></label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mb-4 font-headline text-headline-md text-on-surface"><span class="mr-2 font-label text-label-md text-primary">05</span> Can a person review exceptions or sensitive decisions?</legend>
+                        <div class="grid gap-3 sm:grid-cols-3">
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="oversight" required type="radio" value="0"><span class="text-body-sm">No clear owner</span></label>
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="oversight" type="radio" value="1"><span class="text-body-sm">An owner could be assigned</span></label>
+                            <label class="flex cursor-pointer items-center gap-3 rounded-xl border border-outline-variant bg-surface-container-lowest p-4"><input class="text-primary focus:ring-primary" name="oversight" type="radio" value="2"><span class="text-body-sm">Yes, an owner is available</span></label>
+                        </div>
+                    </fieldset>
+
+                    <button class="btn-primary w-full sm:w-auto" type="submit">See Our Recommendation</button>
+                </form>
+
+                <!-- Pre-assessment State -->
+                <article aria-live="polite" class="mt-6 rounded-xl border border-primary/30 bg-surface-container-lowest p-6 md:p-8" id="assessment-result" tabindex="-1">
+                    <div class="flex items-start gap-4">
+                        <div class="icon-tile mb-0 shrink-0"><span class="material-symbols-outlined text-primary" id="result-icon">insights</span></div>
+                        <div>
+                            <p class="mb-2 font-label text-label-sm uppercase tracking-wider text-primary" id="result-label">Start Assessment</p>
+                            <h2 class="mb-3 font-headline text-headline-lg text-on-surface" id="result-heading">Complete the assessment to see your recommendation.</h2>
+                            <p class="mb-6 font-body text-body-md text-on-surface-variant" id="result-copy">Answer all five questions above to learn whether this workflow is ready for secure AI automation.</p>
+                            <a class="btn-primary" href="/contact.html">Discuss This Workflow</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post-assessment State -->
+                <article aria-live="polite" class="mt-6 rounded-xl border border-primary/30 bg-surface-container-lowest p-6 md:p-8" id="post-assessment-result" tabindex="-1">
+                    <div class="flex items-start gap-4">
+                        <div class="icon-tile mb-0 shrink-0"><span class="material-symbols-outlined text-primary">rocket_launch</span></div>
+                        <div>
+                            <p class="mb-2 font-label text-label-sm uppercase tracking-wider text-primary">Strong Automation Candidate</p>
+                            <h2 class="mb-3 font-headline text-headline-lg text-on-surface">This workflow is <span class="text-primary">ready for a closer look.</span></h2>
+                            <p class="mb-6 font-body text-body-md text-on-surface-variant">Your responses indicate that this workflow is frequent, repeatable, and supported by the right systems and human oversight. A secure Tabiri Digital Employee could reduce manual effort and return meaningful capacity to your team.</p>
+                            <a class="btn-primary" href="/contact.html">Discuss Your Results</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </section>
     </main>
 
@@ -181,5 +246,51 @@
     <script src="./assets/js/mobile-nav.js"></script>
     <script src="./assets/js/scroll-up.js"></script>
     <script src="./assets/js/dropdown-nav.js"></script>
+    <script>
+        const assessmentForm = document.getElementById('automation-assessment-form');
+        const assessmentResult = document.getElementById('assessment-result');
+        const resultLabel = document.getElementById('result-label');
+        const resultHeading = document.getElementById('result-heading');
+        const resultCopy = document.getElementById('result-copy');
+        const resultIcon = document.getElementById('result-icon');
+
+        assessmentForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const score = [...new FormData(assessmentForm).values()]
+                .reduce((total, value) => total + Number(value), 0);
+            let result;
+
+            if (score >= 8) {
+                result = {
+                    label: 'Strong automation candidate',
+                    heading: 'This workflow is ready for a closer look.',
+                    copy: 'Its frequency, repeatability, digital inputs, and business impact suggest that a secure Tabiri Digital Employee could return meaningful capacity to your team.',
+                    icon: 'rocket_launch'
+                };
+            } else if (score >= 5) {
+                result = {
+                    label: 'Promising automation candidate',
+                    heading: 'This workflow may benefit from targeted automation.',
+                    copy: 'A short workflow review can identify which steps are ready now and where process or system preparation would improve the outcome.',
+                    icon: 'route'
+                };
+            } else {
+                result = {
+                    label: 'Prepare before automating',
+                    heading: 'Start by clarifying and standardizing the workflow.',
+                    copy: 'Document the steps, assign an owner, and capture the work in digital systems. Those changes will make future automation safer and more valuable.',
+                    icon: 'construction'
+                };
+            }
+
+            resultLabel.textContent = result.label;
+            resultHeading.textContent = result.heading;
+            resultCopy.textContent = result.copy;
+            resultIcon.textContent = result.icon;
+            assessmentResult.classList.remove('hidden');
+            assessmentResult.focus();
+        });
+    </script>
 </body>
 </html>
