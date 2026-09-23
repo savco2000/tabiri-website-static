@@ -79,7 +79,7 @@ body {
     display: flex;
     width: 39mm;
     height: 12mm;
-    margin-bottom: 3mm;
+    margin-bottom: 5mm;
     align-items: center;
     padding: 1.5mm 3mm 1.5mm 0;
     background: transparent;
@@ -539,22 +539,19 @@ body {
     color: rgba(255, 255, 255, 0.72);
 }
 
-.cta__button {
-    display: inline-block;
-    margin-top: 1mm;
-    padding: 2mm 3mm;
-    background: white;
-    color: var(--blue-dark) !important;
-    font-size: 7.5pt;
+.cta > .cta__contact-label {
+    margin: 1mm 0 0.8mm;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 6.5pt;
     font-weight: 700;
-    text-decoration: none;
+    text-transform: uppercase;
 }
 
-.cta__phone {
-    display: inline-block;
-    margin-left: 3mm;
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 7pt;
+.cta > .cta__email {
+    margin: 0;
+    color: white;
+    font-size: 8pt;
+    font-weight: 700;
 }
 
 footer {
