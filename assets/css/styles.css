@@ -1291,6 +1291,11 @@ input:where([type='file']):focus {
   right: 0px;
 }
 
+.inset-x-6 {
+  left: 1.5rem;
+  right: 1.5rem;
+}
+
 .-bottom-10 {
   bottom: -2.5rem;
 }
@@ -3023,6 +3028,15 @@ input:where([type='file']):focus {
 }
 
 @media (min-width: 768px) {
+  .md\:inset-x-8 {
+    left: 2rem;
+    right: 2rem;
+  }
+
+  .md\:bottom-8 {
+    bottom: 2rem;
+  }
+
   .md\:col-span-1 {
     grid-column: span 1 / span 1;
   }
@@ -3053,6 +3067,10 @@ input:where([type='file']):focus {
 
   .md\:mt-0 {
     margin-top: 0px;
+  }
+
+  .md\:mt-10 {
+    margin-top: 2.5rem;
   }
 
   .md\:mt-12 {
@@ -3261,6 +3279,10 @@ input:where([type='file']):focus {
 
   .lg\:flex-row {
     flex-direction: row;
+  }
+
+  .lg\:flex-row-reverse {
+    flex-direction: row-reverse;
   }
 
   .lg\:items-start {
