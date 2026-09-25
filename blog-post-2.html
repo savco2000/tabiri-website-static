@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Edwin Kairu explains how Tabiri used engineer-led Agentic SecOps to assess a regulated fintech's live payment infrastructure, validate risk, and accelerate remediation.">
+    <link rel="canonical" href="https://tabirianalytics.com/blog-post.html">
+    <meta property="og:title" content="Inside a regulated fintech's Agentic SecOps penetration test | Tabiri Analytics">
+    <meta property="og:description" content="How Tabiri combined autonomous security testing with expert judgment to assess a regulated payment environment and turn findings into action.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tabirianalytics.com/blog-post.html">
+    <meta property="og:image" content="https://tabirianalytics.com/assets/images/fintech-compliance.avif">
+    <meta name="author" content="Edwin Kairu">
+    <title>Inside a regulated fintech's Agentic SecOps penetration test | Tabiri Analytics</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="preload" href="./assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/material-symbols-outlined.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="./assets/css/fonts.css" rel="stylesheet">
+    <link href="./assets/css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH3CMBPJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <nav class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-gutter py-3 flex justify-between items-center">
+            <div class="flex flex-1 items-center gap-4 xl:gap-8">
+                <div class="h-9 md:h-10 w-auto flex items-center">
+                    <a href="/" class="inline-flex h-full items-center overflow-hidden">
+                        <img alt="Tabiri logo" class="h-full w-auto object-contain" width="161" height="77" src="./assets/svg/logo.svg">
+                    </a>
+                </div>
+                <div class="hidden lg:flex flex-1 justify-center items-center gap-5 xl:gap-6">
+                    <ul class="flex items-center gap-4 xl:gap-5">
+                        <li><a class="nav-link" href="/">Home</a></li>
+                        <li class="relative">
+                            <button class="nav-dropdown-trigger flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-on-surface-variant transition-colors hover:bg-surface-container-low hover:text-on-surface" type="button" data-dropdown-target="solutions-menu">
+                                Solutions
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="nav-dropdown-menu absolute left-0 top-full mt-2 hidden min-w-[280px] rounded-2xl border border-outline-variant bg-surface-container-lowest p-2 shadow-lg shadow-black/5" id="solutions-menu">
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/digital-employees.html">Digital Employees</a>
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/operational-assessment.html">Operational Assessment</a>
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/penetration-testing.html">Penetration Testing</a>
+                                <a class="nav-link block whitespace-nowrap rounded-xl px-3 py-2" href="/managed-cybersecurity-services.html">Managed Cybersecurity Services</a>
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/cybersecurity-insurance.html">Cybersecurity Insurance</a>
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/data-protection.html">Data Protection</a>
+                            </div>
+                        </li>
+                        <li><a class="nav-link" href="/case-studies.html">Case Studies</a></li>
+                        <li><a class="nav-link" href="/channel-partners.html">Partners</a></li>
+                        <li class="relative">
+                            <button class="nav-dropdown-trigger flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-on-surface-variant transition-colors hover:bg-surface-container-low hover:text-on-surface" type="button" data-dropdown-target="government-menu">
+                                Government Contracting
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="nav-dropdown-menu absolute left-0 top-full mt-2 hidden min-w-[220px] rounded-2xl border border-outline-variant bg-surface-container-lowest p-2 shadow-lg shadow-black/5" id="government-menu">
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/capability-statement.html">Capability Statement</a>
+                            </div>
+                        </li>
+                        <li><a class="nav-link-active" href="/blog.html">Blog</a></li>
+                        <li><a class="nav-link" href="/about.html">About Us</a></li>                        
+                    </ul>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a class="nav-cta hidden sm:inline-flex" href="/contact.html">
+                    Book a call
+                </a>
+                <button aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open site navigation" class="nav-toggle-button" id="mobile-nav-toggle" type="button">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+        <div aria-hidden="true" class="mobile-nav-panel lg:hidden border-t border-outline-variant bg-surface-container-lowest/95 backdrop-blur-md" id="mobile-nav-panel">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-col gap-3">
+                <a class="nav-link py-2" href="/">Home</a>
+                <div class="flex flex-col gap-1 rounded-2xl border border-outline-variant/70 bg-surface-container-low p-3">
+                    <p class="font-label text-label-sm uppercase tracking-[0.2em] text-on-surface-variant px-1">Solutions</p>
+                    <a class="nav-link py-2 pl-3" href="/digital-employees.html">Digital Employees</a>
+                    <a class="nav-link py-2 pl-3" href="/operational-assessment.html">Operational Assessment</a>
+                    <a class="nav-link py-2 pl-3" href="/penetration-testing.html">Penetration Testing</a>
+                    <a class="nav-link py-2 pl-3" href="/managed-cybersecurity-services.html">Managed Cybersecurity Services</a>
+                    <a class="nav-link py-2 pl-3" href="/cybersecurity-insurance.html">Cybersecurity Insurance</a>
+                    <a class="nav-link py-2 pl-3" href="/data-protection.html">Data Protection</a>
+                </div>
+                <a class="nav-link py-2" href="/case-studies.html">Case Studies</a>
+                <a class="nav-link py-2" href="/channel-partners.html">Partners</a>
+                <div class="flex flex-col gap-1 rounded-2xl border border-outline-variant/70 bg-surface-container-low p-3">
+                    <p class="font-label text-label-sm uppercase tracking-[0.2em] text-on-surface-variant px-1">Government Contracting</p>
+                    <a class="nav-link py-2 pl-3" href="/capability-statement.html">Capability Statement</a>
+                </div>
+                <a class="nav-link py-2" href="/about.html">About Us</a>
+                <a class="nav-link-active py-2" href="/blog.html">Blog</a>
+                <a class="nav-cta mt-2 py-3" href="/contact.html">Book a call</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 md:pt-28" id="article-main">
+        <article class="pb-12">
+            <section class="relative py-14 md:py-16 px-gutter overflow-hidden bg-surface-container-lowest border-b border-outline-variant">
+                <div class="absolute inset-0 opacity-40"></div>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <div class="mb-6">
+                        <a class="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 font-label text-label-sm uppercase tracking-wider text-primary transition-colors hover:bg-surface-container-lowest" href="/blog.html">
+                            <span class="material-symbols-outlined icon-size-sm">arrow_back</span>
+                            Back to Blog
+                        </a>
+                    </div>
+                    <div class="mb-8 flex flex-wrap items-center gap-3 text-body-sm text-on-surface-variant">
+                        <span class="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container-low px-3 py-1 font-label text-label-sm uppercase tracking-wider text-primary">Cybersecurity</span>
+                        <span>&bull;</span>
+                        <time datetime="2026-09-25">September 25, 2026</time>
+                        <span>&bull;</span>
+                        <span>9 min read</span>
+                    </div>
+                    <h1 class="font-headline text-4xl md:text-display-lg text-on-background mb-6 max-w-4xl">Inside a regulated fintech's Agentic SecOps penetration test</h1>
+                    <p class="font-body text-body-lg text-on-surface-variant max-w-3xl mb-8">
+                        How we combined machine-speed coverage with human judgment to assess live payment infrastructure, expose material risk quickly, and give a regulated fintech a practical path to remediation.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img alt="Edwin Kairu" class="h-14 w-14 rounded-full object-cover ring-2 ring-primary/20" width="56" height="56" src="./assets/images/edwin_kairu_headshot.avif">
+                        <div>
+                            <p class="font-headline text-xl text-on-surface">Edwin Kairu</p>
+                            <p class="font-body text-body-sm text-on-surface-variant">Co-Founder and CEO, Tabiri Analytics</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-12 px-gutter bg-surface-container-low">
+                <div class="max-w-4xl mx-auto">
+                    <div class="overflow-hidden rounded-[2rem] border border-outline-variant bg-surface-container-low mb-10 shadow-sm">
+                        <img alt="Secure digital payment infrastructure under assessment" class="w-full h-[320px] md:h-[480px] object-cover" width="1600" height="1067" src="./assets/images/fintech-compliance.avif">
+                    </div>
+
+                    <div class="prose max-w-none">
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            A penetration test on a live payment platform has no room for theater. The environment moves money, connects third parties, and sits under regulatory scrutiny. Coverage matters, but so do restraint, evidence and the ability to turn a finding into a verified fix before it becomes an incident.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            I led Tabiri's technical work for a regulated fintech with that reality in mind. The engagement covered external and internal vulnerability assessment and penetration testing across a hybrid environment, authenticated payment workflows and the operational controls required by applicable cyber security guidance. We had a compressed regulatory timeline, a production system to protect and a broad attack surface to understand. That combination made it an ideal real-world deployment of our Agentic SecOps methodology.
+                        </p>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">We began with boundaries, not scanners</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            Good testing starts with disciplined scoping. Before we touched the environment, our teams aligned on the asset inventory, public endpoints, internal systems, partner-managed integrations, exclusions, network and data-flow diagrams, access methods and escalation paths. We also agreed on low-traffic testing windows and a notification process for any action that could affect availability.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            Those controls were especially important because this was not a lab. The client's services were live. Every source address was coordinated, internal access was provisioned through an approved testing host and potentially disruptive activity remained under engineer control. Agentic does not mean unconstrained.
+                        </p>
+
+                        <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-6 my-8">
+                            <p class="font-headline text-2xl md:text-headline-md text-primary mb-3">The operating principle</p>
+                            <p class="font-body text-body-md text-on-surface-variant leading-relaxed">
+                                Let agents handle repeatable discovery, correlation and evidence structure. Keep scope, judgment, exploitation decisions, escalation and final validation in the hands of experienced security engineers.
+                            </p>
+                        </div>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">External first, then authenticated internal depth</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            We started with the externally accessible attack surface while internal access was being finalized. That allowed reconnaissance and vulnerability detection to move in parallel with environment staging. Once approved access was ready, we deployed the orchestrator inside the client's network on a controlled Kali Linux testing VM and moved into authenticated internal assessment.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            The combined view mattered. Public exposure alone rarely explains the full risk of a payment system. We correlated evidence across 31 service hostnames, every TCP port on the in-scope internal network and authenticated payment workflows. We examined service relationships and privilege boundaries rather than treating each scan result as an isolated alert.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                            <article class="trust-card-no-hover group transition-colors">
+                                <div class="mb-4 flex items-center gap-3">
+                                    <div class="icon-tile mb-0"><span class="material-symbols-outlined text-primary">travel_explore</span></div>
+                                    <h3 class="font-headline text-2xl md:text-headline-md text-on-surface text-primary">Coverage</h3>
+                                </div>
+                                <p class="font-body text-body-sm text-on-surface-variant leading-relaxed">Agents sustained broad discovery across external, internal and authenticated surfaces without losing the relationship between assets.</p>
+                            </article>
+                            <article class="trust-card-no-hover group transition-colors">
+                                <div class="mb-4 flex items-center gap-3">
+                                    <div class="icon-tile mb-0"><span class="material-symbols-outlined text-primary">history</span></div>
+                                    <h3 class="font-headline text-2xl md:text-headline-md text-on-surface text-primary">Traceability</h3>
+                                </div>
+                                <p class="font-body text-body-sm text-on-surface-variant leading-relaxed">The testing agent maintained action history and structured evidence as work progressed, reducing reporting gaps and making review faster.</p>
+                            </article>
+                            <article class="trust-card-no-hover group transition-colors">
+                                <div class="mb-4 flex items-center gap-3">
+                                    <div class="icon-tile mb-0"><span class="material-symbols-outlined text-primary">verified_user</span></div>
+                                    <h3 class="font-headline text-2xl md:text-headline-md text-on-surface text-primary">Judgment</h3>
+                                </div>
+                                <p class="font-body text-body-sm text-on-surface-variant leading-relaxed">Our engineers directed every action, challenged machine-generated hypotheses and manually validated material findings before escalation.</p>
+                            </article>
+                        </div>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">The finding that changed the tempo</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            Within the first two hours, the assessment exposed a critical cross-merchant authorization flaw. We will not publish the reproduction path or affected implementation details. What matters is the response loop: the evidence was reviewed by our engineers, communicated through the agreed escalation path, patched by the customer and retested by Tabiri the same day.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            That is the practical value of speed in security. A faster test is only useful when it shortens the time between exposure, understanding, remediation and proof. In this case, machine-assisted discovery and evidence handling gave the human teams more time to focus on impact and corrective action.
+                        </p>
+
+                        <blockquote class="my-10 border-l-4 border-primary bg-surface-container-low p-6 rounded-r-2xl">
+                            <p class="font-headline text-2xl md:text-headline-md text-on-surface text-primary leading-relaxed">Broader coverage, earlier warning of critical risk, same-day validation of a fix, a complete audit trail and more time to meet compliance obligations.</p>
+                        </blockquote>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">How this differed from a traditional manual test</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            In a traditional engagement, skilled testers spend a significant share of the schedule launching tools, normalizing output, deduplicating observations, rebuilding context across systems and formatting evidence. Those tasks are necessary, but they compete with the work that most needs expertise: forming attack hypotheses, understanding business logic, deciding what is safe to test and determining whether a result is genuinely exploitable.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            Our configured agent continuously executed approved assessment tooling, tracked what had been attempted, correlated results and organized findings as they emerged. The engineers remained in the loop for direction and review. This division of labor allowed us to deliver a prioritized resilience roadmap in 24 hours, up to 14 times faster than the comparable manual process, while assessing 100% of internal TCP ports in scope.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            The customer benefit was not simply a shorter invoiceable timeline. The client received broader coverage, earlier notice of critical risk, same-day validation of a fix, a complete audit trail and more runway to address compliance obligations before its deadline.
+                        </p>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">Technical evidence was only half the assessment</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            Infrastructure testing can tell us where a control failed technically. It cannot, by itself, establish whether governance, authorization, staff processes or incident-response practices are mature. We therefore paired the VA/PT with an operational assessment covering governance, risk management, data protection, access management, security architecture and incident response.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            We brought both streams into one report. Validated technical findings, operational responses, remediation guidance and control evidence were mapped to applicable cyber security guidance and relevant PCI DSS requirements. The result was not a scanner export. It was a decision document for engineers, executives and compliance stakeholders.
+                        </p>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">What I took away from the engagement</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            Agentic SecOps is already useful in production but only when it is engineered around accountability. The strongest part of this engagement was not autonomous execution in isolation. It was the collaboration between the client's technology team, Tabiri's security engineers and a system that could maintain coverage and context at machine speed.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-10">
+                            That model changes what a penetration test can deliver. It makes comprehensive testing practical under tight deadlines, surfaces material risk earlier and preserves the human judgment required for live, regulated systems. For the client, it meant moving from uncertainty to a verified fix and a prioritized resilience roadmap in a day. For our team, it was further proof that the future of security operations is not human or agent. It is expert-led, agent-accelerated defense.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-12 px-gutter bg-surface-container-low border-t border-outline-variant" id="agentic-secops-cta">
+                <div class="max-w-7xl mx-auto rounded-3xl bg-[#e2e7ff] p-8 md:p-12 text-center text-on-surface relative overflow-hidden border border-outline-variant shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#1a45d2]/5 to-transparent"></div>
+                    <div class="relative z-10 max-w-5xl mx-auto">
+                        <p class="font-label text-label-sm uppercase tracking-[0.2em] text-primary mb-4">Test at Machine Speed. Decide with Human Judgment.</p>
+                        <h2 class="font-headline text-4xl md:text-display-lg text-center mb-4">Put <span class="text-primary">Agentic SecOps</span> to work on your attack surface</h2>
+                        <p class="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-8">
+                            Combine broad technical coverage, validated findings, and compliance-ready evidence in one engineer-led assessment.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <a class="btn-primary" href="/contact.html">Plan your penetration test</a>
+                            <a class="btn-secondary" href="/penetration-testing.html">Explore the methodology</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="w-full py-12 px-4 md:px-8 lg:px-margin-desktop max-w-7xl mx-auto border-t border-outline-variant bg-surface" id="site-footer">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
+            <div class="md:col-span-1">
+                <div class="h-10 mb-4 max-w-xs">
+                    <img alt="Tabiri logo" class="h-full w-auto object-contain object-left" width="161" height="77" loading="lazy" decoding="async" src="./assets/svg/logo.svg">
+                </div>
+                <p class="text-body-sm text-on-surface-variant max-w-xs">
+                    Empowering the modern enterprise with secure, agentic intelligence. Sovereign by design.
+                </p>
+            </div>
+            <div id="footer-product-links">
+                <h3 class="font-label text-label-md text-primary mb-6 uppercase tracking-wider">PRODUCT</h3>
+                <ul class="space-y-4">
+                    <li><a class="footer-link" href="/case-studies.html">Case Studies</a></li>
+                    <li><a class="footer-link" href="/data-protection.html">Sovereign Node</a></li>
+                    <li><a class="footer-link" href="/managed-cybersecurity-services.html">CyberSecurity</a></li>
+                </ul>
+            </div>
+            <div id="footer-company-links">
+                <h3 class="font-label text-label-md text-primary mb-6 uppercase tracking-wider">COMPANY</h3>
+                <ul class="space-y-4">
+                    <li><a class="footer-link" href="/about.html">About Us</a></li>
+                    <li><a class="footer-link" href="/channel-partners.html">Partners</a></li>
+                    <li><a class="footer-link" href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-label text-label-md text-primary mb-6 uppercase tracking-wider">LEGAL</h3>
+                <ul class="space-y-4">
+                    <li><a class="footer-link" href="#privacy-policy">Privacy Policy</a></li>
+                    <li><a class="footer-link" href="#terms-of-service">Terms of Service</a></li>
+                    <li><a class="footer-link" href="#security-disclosure">Security Disclosure</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-outline-variant pt-8 flex flex-col md:flex-row justify-between items-center text-body-sm text-on-surface-variant">
+            <span>© 2026 Tabiri Analytics. Lexington, KY, USA.</span>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-node-green"></span> All Systems Operational</span>
+            </div>
+        </div>
+    </footer>
+
+    <button
+        id="scrollUpBtn"
+        class="fixed bottom-6 right-6 z-50 hidden translate-y-4 opacity-0 rounded-full bg-blue-600 p-3 text-white shadow-lg transition-all duration-300 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+        aria-label="Go to top">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <script src="./assets/js/analytics.js"></script>
+    <script src="./assets/js/mobile-nav.js"></script>
+    <script src="./assets/js/scroll-up.js"></script>
+    <script src="./assets/js/dropdown-nav.js"></script>
+</body>
+</html>
