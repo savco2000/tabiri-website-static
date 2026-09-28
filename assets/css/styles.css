@@ -1744,6 +1744,10 @@ input:where([type='file']):focus {
   width: 1px;
 }
 
+.w-52 {
+  width: 13rem;
+}
+
 .min-w-\[220px\] {
   min-width: 220px;
 }
@@ -1790,6 +1794,10 @@ input:where([type='file']):focus {
 
 .max-w-xs {
   max-width: 20rem;
+}
+
+.max-w-full {
+  max-width: 100%;
 }
 
 .flex-1 {
@@ -3184,6 +3192,16 @@ input:where([type='file']):focus {
     line-height: 32px;
     font-weight: 600;
   }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -3255,6 +3273,10 @@ input:where([type='file']):focus {
     grid-template-columns: minmax(0,3fr) minmax(0,5fr);
   }
 
+  .lg\:grid-cols-\[0\.85fr_1\.15fr\] {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
   }
@@ -3291,6 +3313,14 @@ input:where([type='file']):focus {
     white-space: nowrap;
   }
 
+  .lg\:border-l {
+    border-left-width: 1px;
+  }
+
+  .lg\:border-t-0 {
+    border-top-width: 0px;
+  }
+
   .lg\:p-10 {
     padding: 2.5rem;
   }
@@ -3315,6 +3345,14 @@ input:where([type='file']):focus {
   .lg\:px-margin-desktop {
     padding-left: 64px;
     padding-right: 64px;
+  }
+
+  .lg\:pl-12 {
+    padding-left: 3rem;
+  }
+
+  .lg\:pt-0 {
+    padding-top: 0px;
   }
 
   .lg\:text-left {
