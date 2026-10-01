@@ -117,10 +117,39 @@
             </div>
         </section>
 
+        <nav class="border-b border-outline-variant bg-surface-container-lowest" aria-label="Case studies">
+            <div class="max-w-7xl mx-auto px-gutter py-6">
+                <p class="font-label text-label-sm uppercase tracking-widest text-on-surface-variant mb-3">Explore deployments</p>
+                <div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,18rem),1fr))] gap-3">
+                    <a class="group flex items-center justify-between gap-4 border-l-4 border-primary bg-surface-container-low px-5 py-4 transition-colors hover:bg-surface-container" href="#regulated-fintech">
+                        <span>
+                            <span class="block font-label text-label-sm uppercase tracking-wider text-accent">Financial services</span>
+                            <span class="block font-headline text-headline-md text-on-surface mt-1">Regulated FinTech</span>
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform group-hover:translate-y-1" aria-hidden="true">arrow_downward</span>
+                    </a>
+                    <a class="group flex items-center justify-between gap-4 border-l-4 border-primary bg-surface-container-low px-5 py-4 transition-colors hover:bg-surface-container" href="#elijahs-bridge">
+                        <span>
+                            <span class="block font-label text-label-sm uppercase tracking-wider text-accent">Legal operations</span>
+                            <span class="block font-headline text-headline-md text-on-surface mt-1">Elijah's Bridge</span>
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform group-hover:translate-y-1" aria-hidden="true">arrow_downward</span>
+                    </a>
+                    <a class="group flex items-center justify-between gap-4 border-l-4 border-primary bg-surface-container-low px-5 py-4 transition-colors hover:bg-surface-container" href="#cdp-mapsync">
+                        <span>
+                            <span class="block font-label text-label-sm uppercase tracking-wider text-accent">Municipal infrastructure</span>
+                            <span class="block font-headline text-headline-md text-on-surface mt-1">CDP-MapSync</span>
+                        </span>
+                        <span class="material-symbols-outlined text-primary transition-transform group-hover:translate-y-1" aria-hidden="true">arrow_downward</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
         <section class="py-12 bg-surface-container-low" id="featured-case-study">
             <div class="max-w-7xl mx-auto px-gutter">
                 <!-- Regulated FinTech Case Study -->
-                <article class="bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant shadow-sm flex flex-col lg:flex-row-reverse">
+                <article class="scroll-mt-28 bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant shadow-sm flex flex-col lg:flex-row-reverse" id="regulated-fintech">
                     <div class="lg:w-[45%] relative min-h-[320px] md:min-h-[400px] overflow-hidden bg-surface-container-high">
                         <img alt="Secure digital payment processing for a regulated FinTech" class="absolute inset-0 w-full h-full object-cover" width="1600" height="1067" loading="lazy" decoding="async" src="./assets/images/fintech-compliance.avif">
                         <div class="absolute inset-0 bg-primary/20"></div>
@@ -165,24 +194,30 @@
                             </div>
                         </div>
 
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-0.5">shield_lock</span>
-                                <p class="font-body text-body-md text-on-surface-variant"><strong>Deeper attack-path visibility:</strong> Agentic SecOps correlated evidence across 31 service hostnames, every TCP port on the internal network, authenticated payment workflows and 26 governance domains, extending the assessment far beyond a surface scan.</p>
+                        <details class="group border-t border-outline-variant/30 pt-5">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-label text-label-md text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4">
+                                View deployment details
+                                <span class="material-symbols-outlined transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
+                            </summary>
+                            <div class="space-y-4 pt-6">
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-primary mt-0.5">shield_lock</span>
+                                    <p class="font-body text-body-md text-on-surface-variant"><strong>Deeper attack-path visibility:</strong> Agentic SecOps correlated evidence across 31 service hostnames, every TCP port on the internal network, authenticated payment workflows and 26 governance domains, extending the assessment far beyond a surface scan.</p>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-primary mt-0.5">speed</span>
+                                    <p class="font-body text-body-md text-on-surface-variant"><strong>Immediate risk reduction:</strong> Within a couple of hours, Tabiri uncovered a critical cross-merchant authorization flaw, enabling the client to patch it immediately and our engineers to verify the fix the same day.</p>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-primary mt-0.5">fact_check</span>
+                                    <p class="font-body text-body-md text-on-surface-variant"><strong>Resilience against machine-speed attacks:</strong> The resulting roadmap strengthens endpoint detection and response, malware sandboxing, application allowlisting, threat intelligence, network segmentation, and weekly external scanning to reduce the paths AI-enabled malware can exploit.</p>
+                                </div>
                             </div>
-                            <div class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-0.5">speed</span>
-                                <p class="font-body text-body-md text-on-surface-variant"><strong>Immediate risk reduction:</strong> Within a couple of hours, Tabiri uncovered a critical cross-merchant authorization flaw, enabling the client to patch it immediately and our engineers to verify the fix the same day.</p>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-0.5">fact_check</span>
-                                <p class="font-body text-body-md text-on-surface-variant"><strong>Resilience against machine-speed attacks:</strong> The resulting roadmap strengthens endpoint detection and response, malware sandboxing, application allowlisting, threat intelligence, network segmentation, and weekly external scanning to reduce the paths AI-enabled malware can exploit.</p>
-                            </div>
-                        </div>
+                        </details>
                     </div>
                 </article>
                 <!--Elijah's Bridge Case Study -->
-                <article class="mt-8 md:mt-10 bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant shadow-sm flex flex-col lg:flex-row">
+                <article class="scroll-mt-28 mt-8 md:mt-10 bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant shadow-sm flex flex-col lg:flex-row" id="elijahs-bridge">
                     <div class="lg:w-[45%] relative min-h-[320px] md:min-h-[400px] overflow-hidden flex justify-center items-center bg-surface-container-low">
                         <img alt="Elijah's Bridge Legal Operating System" class="absolute inset-0 w-full h-full object-contain p-10 md:p-12" width="960" height="535" fetchpriority="high" decoding="async" src="./assets/images/elijahs_bridge.avif">
                         <div class="absolute inset-0 bg-primary/5"></div>
@@ -220,25 +255,31 @@
                             </div>
                         </div>
 
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">search_insights</span>
-                                <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">Precision Indexing:</strong> 500+ documents organized so every claim traces back to its exact source file.</p>
+                        <details class="group border-t border-outline-variant/30 pt-5">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-label text-label-md text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4">
+                                View deployment details
+                                <span class="material-symbols-outlined transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
+                            </summary>
+                            <div class="space-y-4 pt-6">
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">search_insights</span>
+                                    <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">Precision Indexing:</strong> 500+ documents organized so every claim traces back to its exact source file.</p>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">database</span>
+                                    <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">Media Ingestion:</strong> Transcribed 250k+ characters from 30+ recordings into searchable evidence.</p>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">gavel</span>
+                                    <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">Authority Verification:</strong> Retrieved cited laws from approved databases with 100% accuracy.</p>
+                                </div>
                             </div>
-                            <div class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">database</span>
-                                <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">Media Ingestion:</strong> Transcribed 250k+ characters from 30+ recordings into searchable evidence.</p>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">gavel</span>
-                                <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">Authority Verification:</strong> Retrieved cited laws from approved databases with 100% accuracy.</p>
-                            </div>
-                        </div>
+                        </details>
                     </div>
                 </article>
 
                 <!-- CDP-MapSync Case Study -->
-                <article class="mt-8 md:mt-10 bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant shadow-sm flex flex-col lg:flex-row-reverse">
+                <article class="scroll-mt-28 mt-8 md:mt-10 bg-surface-container-lowest rounded-2xl overflow-hidden border border-outline-variant shadow-sm flex flex-col lg:flex-row-reverse" id="cdp-mapsync">
                     <div class="lg:w-[45%] relative min-h-[320px] md:min-h-[400px] overflow-hidden flex justify-center items-center bg-surface-container-low">
                         <img alt="Continuous security monitoring across municipal data infrastructure" class="absolute inset-0 w-full h-full object-cover" width="1600" height="1066" loading="lazy" decoding="async" src="./assets/images/cdp-mapsync-monitoring.avif">
                         <div class="absolute left-6 right-6 bottom-6 md:left-8 md:right-8 md:bottom-8 rounded-lg bg-surface-container-lowest/95 px-5 py-4 shadow-sm">
@@ -278,29 +319,32 @@
                             </div>
                         </div>
 
-                        <div class="space-y-4">
-                            <div class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">travel_explore</span>
-                                <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">Continuous endpoint visibility:</strong> Lightweight agents forwarded system telemetry to Tabiri's cloud security stack, where indexing, analytics, and alert generation ran without placing the analysis burden on CDP-MapSync's systems.</p>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">fact_check</span>
-                                <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">Practical risk reduction:</strong> Engineers grouped findings by severity, identified high-severity software exposure, and maintained a remediation plan so CDP-MapSync could update affected systems quickly.</p>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">hub</span>
-                                <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">A path to agentic defense:</strong> The evolved architecture delegates bounded health checks and alert investigations to endpoint agents while engineers retain control of scope, escalation, and potentially destructive response actions.</p>
-                            </div>
-                        </div>
-
                         <blockquote class="mt-8 border-l-4 border-primary pl-5">
                             <p class="font-body text-body-md text-on-surface leading-relaxed">“The continuous monitoring of our systems has been seamless with easy to interpret reporting.”</p>
                             <footer class="mt-2 font-label text-label-sm text-on-surface-variant">David Carter, PE, LS, President, CDP-MapSync</footer>
                         </blockquote>
 
-                        <div class="mt-8">
-                            <a class="inline-flex items-center gap-2 font-label text-label-md text-primary hover:underline" href="/blog-post-3.html">Read the full monitoring story <span class="material-symbols-outlined icon-size-sm">arrow_forward</span></a>
-                        </div>
+                        <details class="group mt-8 border-t border-outline-variant/30 pt-5">
+                            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-label text-label-md text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4">
+                                View deployment details
+                                <span class="material-symbols-outlined transition-transform group-open:rotate-180" aria-hidden="true">expand_more</span>
+                            </summary>
+                            <div class="space-y-4 pt-6">
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">travel_explore</span>
+                                    <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">Continuous endpoint visibility:</strong> Lightweight agents forwarded system telemetry to Tabiri's cloud security stack, where indexing, analytics, and alert generation ran without placing the analysis burden on CDP-MapSync's systems.</p>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">fact_check</span>
+                                    <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">Practical risk reduction:</strong> Engineers grouped findings by severity, identified high-severity software exposure, and maintained a remediation plan so CDP-MapSync could update affected systems quickly.</p>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <span class="material-symbols-outlined text-primary mt-0.5" aria-hidden="true">hub</span>
+                                    <p class="font-body text-body-md text-on-surface-variant"><strong class="text-on-surface">A path to agentic defense:</strong> The evolved architecture delegates bounded health checks and alert investigations to endpoint agents while engineers retain control of scope, escalation, and potentially destructive response actions.</p>
+                                </div>
+                                <a class="inline-flex items-center gap-2 pt-2 font-label text-label-md text-primary hover:underline" href="/blog-post-3.html">Read the full monitoring story <span class="material-symbols-outlined icon-size-sm">arrow_forward</span></a>
+                            </div>
+                        </details>
                     </div>
                 </article>
             </div>
