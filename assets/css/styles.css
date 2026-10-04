@@ -1559,6 +1559,10 @@ input:where([type='file']):focus {
   margin-top: 2rem;
 }
 
+.mt-auto {
+  margin-top: auto;
+}
+
 .block {
   display: block;
 }
@@ -1750,6 +1754,10 @@ input:where([type='file']):focus {
 
 .w-px {
   width: 1px;
+}
+
+.w-9 {
+  width: 2.25rem;
 }
 
 .min-w-\[220px\] {
