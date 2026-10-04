@@ -1229,9 +1229,11 @@ input:where([type='file']):focus {
 }
 
 .mobile-nav-panel.is-open {
-  max-height: 36rem;
+  max-height: calc(100dvh - 4rem);
   opacity: 1;
   transform: translateY(0);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   pointer-events: auto;
 }
 
@@ -1754,10 +1756,6 @@ input:where([type='file']):focus {
 
 .w-px {
   width: 1px;
-}
-
-.w-9 {
-  width: 2.25rem;
 }
 
 .min-w-\[220px\] {
