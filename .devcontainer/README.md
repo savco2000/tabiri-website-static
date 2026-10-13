@@ -20,4 +20,8 @@ This repository includes a VS Code Dev Container configuration in `.devcontainer
 ## Notes
 
 - The container uses `mcr.microsoft.com/devcontainers/base:ubuntu`.
+- Dependencies are installed from `package-lock.json` with `npm ci` so container
+  rebuilds use the tested package versions.
+- Prefer `npm audit fix` over `npm audit fix --force`. Forced fixes may install
+  breaking major versions that require code and configuration migrations.
 - Ports `5500` and `8000` are forwarded for local preview.

@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.js";
 
 @layer base {
 	.material-symbols-outlined {
@@ -12,11 +11,11 @@
 	}
 }
 
-@layer components {
-	.focus-ring {
-		@apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-on-background;
-	}
+@utility focus-ring {
+	@apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:focus-visible:ring-offset-on-background;
+}
 
+@layer components {
 	.nav-link {
 		@apply font-label text-label-md text-on-surface-variant hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 dark:text-on-primary-container dark:hover:text-white;
 	}

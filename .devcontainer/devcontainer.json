@@ -6,7 +6,7 @@
       "version": "lts"
     }
   },
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "npm ci",
   "forwardPorts": [5500, 8000],
   "portsAttributes": {
     "5500": {
