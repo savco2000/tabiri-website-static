@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta name="description" content="Edwin Kairu explains how an AI-assisted penetration-testing workflow turned a new PHP security advisory into safe, targeted checks for rapid human review.">
+    <link rel="canonical" href="https://tabirianalytics.com/blog-post-4.html">
+    <meta property="og:title" content="How Tabiri's AI agent triaged PHP2Shell safely in less than 20 minutes | Tabiri Analytics">
+    <meta property="og:description" content="How an authorized AI-assisted assessment translated a new PHP advisory into non-exploit checks and a focused, reviewable lead in about twenty minutes.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://tabirianalytics.com/blog-post-4.html">
+    <meta property="og:image" content="https://tabirianalytics.com/assets/images/php2shell-agentic-triage.avif">
+    <meta name="author" content="Edwin Kairu">
+    <title>How Tabiri's AI agent triaged PHP2Shell safely in less than 20 minutes | Tabiri Analytics</title>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="preload" href="./assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/material-symbols-outlined.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="./assets/css/fonts.css" rel="stylesheet">
+    <link href="./assets/css/styles.css" rel="stylesheet">
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH3CMBPJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <nav class="fixed top-0 inset-x-0 z-50 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-gutter py-3 flex justify-between items-center">
+            <div class="flex flex-1 items-center gap-4 xl:gap-8">
+                <div class="h-9 md:h-10 w-auto flex items-center">
+                    <a href="/" class="inline-flex h-full items-center overflow-hidden">
+                        <img alt="Tabiri logo" class="h-full w-auto object-contain" width="161" height="77" src="./assets/svg/logo.svg">
+                    </a>
+                </div>
+                <div class="hidden lg:flex flex-1 justify-center items-center gap-5 xl:gap-6">
+                    <ul class="flex items-center gap-4 xl:gap-5">
+                        <li><a class="nav-link" href="/">Home</a></li>
+                        <li class="relative">
+                            <button class="nav-dropdown-trigger flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-on-surface-variant transition-colors hover:bg-surface-container-low hover:text-on-surface" type="button" data-dropdown-target="solutions-menu">
+                                Solutions
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="nav-dropdown-menu absolute left-0 top-full mt-2 hidden min-w-[280px] rounded-2xl border border-outline-variant bg-surface-container-lowest p-2 shadow-lg shadow-black/5" id="solutions-menu">
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/digital-employees.html">Digital Employees</a>
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/operational-assessment.html">Operational Assessment</a>
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/penetration-testing.html">Penetration Testing</a>
+                                <a class="nav-link block whitespace-nowrap rounded-xl px-3 py-2" href="/managed-cybersecurity-services.html">Managed Cybersecurity Services</a>
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/cybersecurity-insurance.html">Cybersecurity Insurance</a>
+                            </div>
+                        </li>
+                        <li><a class="nav-link" href="/data-protection.html">Data Protection</a></li>
+                        <li><a class="nav-link" href="/case-studies.html">Case Studies</a></li>
+                        <li><a class="nav-link" href="/channel-partners.html">Partners</a></li>
+                        <li class="relative">
+                            <button class="nav-dropdown-trigger flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-on-surface-variant transition-colors hover:bg-surface-container-low hover:text-on-surface" type="button" data-dropdown-target="government-menu">
+                                Government Contracting
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </button>
+                            <div class="nav-dropdown-menu absolute left-0 top-full mt-2 hidden min-w-[220px] rounded-2xl border border-outline-variant bg-surface-container-lowest p-2 shadow-lg shadow-black/5" id="government-menu">
+                                <a class="nav-link block rounded-xl px-3 py-2" href="/capability-statement.html">Capability Statement</a>
+                            </div>
+                        </li>
+                        <li><a class="nav-link-active" href="/blog.html">Blog</a></li>
+                        <li><a class="nav-link" href="/about.html">About Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <a class="nav-cta hidden sm:inline-flex" href="/contact.html">Book a call</a>
+                <button aria-controls="mobile-nav-panel" aria-expanded="false" aria-label="Open site navigation" class="nav-toggle-button" id="mobile-nav-toggle" type="button">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+        <div aria-hidden="true" class="mobile-nav-panel lg:hidden border-t border-outline-variant bg-surface-container-lowest/95 backdrop-blur-md" id="mobile-nav-panel">
+            <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex flex-col gap-3">
+                <a class="nav-link py-2" href="/">Home</a>
+                <div class="flex flex-col gap-1 rounded-2xl border border-outline-variant/70 bg-surface-container-low p-3">
+                    <p class="font-label text-label-sm uppercase tracking-[0.2em] text-on-surface-variant px-1">Solutions</p>
+                    <a class="nav-link py-2 pl-3" href="/digital-employees.html">Digital Employees</a>
+                    <a class="nav-link py-2 pl-3" href="/operational-assessment.html">Operational Assessment</a>
+                    <a class="nav-link py-2 pl-3" href="/penetration-testing.html">Penetration Testing</a>
+                    <a class="nav-link py-2 pl-3" href="/managed-cybersecurity-services.html">Managed Cybersecurity Services</a>
+                    <a class="nav-link py-2 pl-3" href="/cybersecurity-insurance.html">Cybersecurity Insurance</a>
+                </div>
+                <a class="nav-link py-2" href="/data-protection.html">Data Protection</a>
+                <a class="nav-link py-2" href="/case-studies.html">Case Studies</a>
+                <a class="nav-link py-2" href="/channel-partners.html">Partners</a>
+                <a class="nav-link py-2" href="/capability-statement.html">Government Contracting</a>
+                <a class="nav-link-active py-2" href="/blog.html">Blog</a>
+                <a class="nav-link py-2" href="/about.html">About Us</a>
+                <a class="nav-cta mt-2 py-3" href="/contact.html">Book a call</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-24 md:pt-28" id="article-main">
+        <article class="pb-12">
+            <section class="relative py-14 md:py-16 px-gutter overflow-hidden bg-surface-container-lowest border-b border-outline-variant">
+                <div class="absolute inset-0 opacity-40"></div>
+                <div class="max-w-4xl mx-auto relative z-10">
+                    <div class="mb-6">
+                        <a class="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container-low px-4 py-2 font-label text-label-sm uppercase tracking-wider text-primary transition-colors hover:bg-surface-container-lowest" href="/blog.html">
+                            <span class="material-symbols-outlined icon-size-sm">arrow_back</span>
+                            Back to Blog
+                        </a>
+                    </div>
+                    <div class="mb-8 flex flex-wrap items-center gap-3 text-body-sm text-on-surface-variant">
+                        <span class="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container-low px-3 py-1 font-label text-label-sm uppercase tracking-wider text-primary">Cybersecurity</span>
+                        <span>&bull;</span>
+                        <time datetime="2026-10-22">October 22, 2026</time>
+                        <span>&bull;</span>
+                        <span>7 min read</span>
+                    </div>
+                    <h1 class="font-headline text-4xl md:text-display-lg text-on-background mb-6 max-w-4xl">How Tabiri's AI agent triaged PHP2Shell safely in less than 20 minutes</h1>
+                    <p class="font-body text-body-lg text-on-surface-variant max-w-3xl mb-8">
+                        How we translated a newly disclosed PHP vulnerability into targeted, non-exploit checks and gave engineers a focused lead for human review in about twenty minutes.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <img alt="Edwin Kairu" class="h-14 w-14 rounded-full object-cover ring-2 ring-primary/20" width="56" height="56" src="./assets/images/edwin_kairu_headshot.avif">
+                        <div>
+                            <p class="font-headline text-xl text-on-surface">Edwin Kairu</p>
+                            <p class="font-body text-body-sm text-on-surface-variant">Co-Founder and CEO, Tabiri Analytics</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-12 px-gutter bg-surface-container-low">
+                <div class="max-w-4xl mx-auto">
+                    <div class="overflow-hidden rounded-[2rem] border border-outline-variant bg-surface-container-low mb-10 shadow-sm">
+                        <img alt="AI-assisted PHP vulnerability triage with safe checks and human validation" class="w-full h-auto" width="1600" height="1067" src="./assets/images/php2shell-agentic-triage.avif">
+                    </div>
+
+                    <div class="prose max-w-none">
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            A new vulnerability advisory can arrive before every security tool in an organization is ready to recognize it. When that happens, defenders still need a quick way to identify which systems might be affected. In one authorized assessment, our AI-assisted penetration-testing workflow helped us turn a new PHP advisory into targeted, non-exploit checks and identify a likely PHP-backed application in about twenty minutes.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            The important result was an early lead for human review, not an automatic declaration that a server was exploitable. That distinction matters whenever speed and uncertainty arrive together.
+                        </p>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">We started with the advisory, not an exploit</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            In October 2026, the PHP security team disclosed two critical vulnerabilities, CVE-2026-109618 and CVE-2026-109619, collectively discussed as PHP2Shell. They affect PHP's handling of request memory and internal state. An unauthenticated attacker may be able to reach remote code execution on affected PHP installations, so the PHP team issued fixed releases for supported branches and recommended updating promptly.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            We had a small, authorized environment to assess, with several systems exposing web interfaces. The rules did not permit exploitation, brute force or post-exploitation. Our goal was narrower: identify likely PHP services quickly, gather safe evidence and tell the responsible engineers where to verify and remediate.
+                        </p>
+
+                        <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-6 my-8">
+                            <p class="font-headline text-2xl md:text-headline-md text-primary mb-3">The boundary that mattered</p>
+                            <p class="font-body text-body-md text-on-surface-variant leading-relaxed">
+                                The agent could translate advisory details into repeatable probes and collect evidence. It could not declare a system vulnerable. Version verification, risk judgment and remediation remained human responsibilities.
+                            </p>
+                        </div>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">Turning a new bug into a practical check</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            Ordinary network discovery gave us the first map of open web services. But a web server banner is not the same thing as a PHP version. One service advertised Apache while its responses did not disclose a PHP version. A scanner looking only for a visible version string could therefore lack enough information to make a confident version-based match.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            Our agent-assisted workflow combined service discovery with checks derived from the advisory's request-handling details. It looked for PHP-style paths and application behavior, examined session-related response signals and sent a carefully scoped multipart request containing the upload-progress field discussed in the advisory. It repeated the candidate check across the other web-facing systems to separate likely PHP surfaces from unrelated applications.
+                        </p>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                            <article class="trust-card-no-hover group transition-colors">
+                                <div class="mb-4 flex items-center gap-3">
+                                    <div class="icon-tile mb-0"><span class="material-symbols-outlined text-primary">policy</span></div>
+                                    <h3 class="font-headline text-2xl md:text-headline-md text-on-surface text-primary">Scope</h3>
+                                </div>
+                                <p class="font-body text-body-sm text-on-surface-variant leading-relaxed">The authorized rules excluded exploitation and kept every probe focused on identifying likely PHP-backed services.</p>
+                            </article>
+                            <article class="trust-card-no-hover group transition-colors">
+                                <div class="mb-4 flex items-center gap-3">
+                                    <div class="icon-tile mb-0"><span class="material-symbols-outlined text-primary">manage_search</span></div>
+                                    <h3 class="font-headline text-2xl md:text-headline-md text-on-surface text-primary">Correlate</h3>
+                                </div>
+                                <p class="font-body text-body-sm text-on-surface-variant leading-relaxed">The agent combined discovery, application behavior and advisory-specific signals instead of relying on a single banner.</p>
+                            </article>
+                            <article class="trust-card-no-hover group transition-colors">
+                                <div class="mb-4 flex items-center gap-3">
+                                    <div class="icon-tile mb-0"><span class="material-symbols-outlined text-primary">fact_check</span></div>
+                                    <h3 class="font-headline text-2xl md:text-headline-md text-on-surface text-primary">Validate</h3>
+                                </div>
+                                <p class="font-body text-body-sm text-on-surface-variant leading-relaxed">Engineers received a focused lead, then retained responsibility for confirming the PHP build, patch status and actual risk.</p>
+                            </article>
+                        </div>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">A probe is evidence, not proof</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            The multipart request returned an application-level response, including a CSRF rejection in one test. That helped show that the request reached the application and informed our fingerprinting. It did not prove that a vulnerable PHP runtime was installed, that the relevant internal condition was present or that code execution was possible.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            The saved evidence identified one likely PHP-backed application among ten targets in roughly twenty minutes. We escalated the candidate and took it out of service while its PHP build and patch status could be checked. For a fast triage exercise, that was the right outcome: a broad advisory became a specific, reviewable lead without any attempt to weaponize the issue.
+                        </p>
+
+                        <blockquote class="my-10 border-l-4 border-primary bg-surface-container-low p-6 rounded-r-2xl">
+                            <p class="font-headline text-2xl md:text-headline-md text-on-surface text-primary leading-relaxed">"The value was not an automatic verdict. It was a fast, evidence-backed path to the next human decision."</p>
+                        </blockquote>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">What the agent contributed</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            Conventional vulnerability scanners are valuable when their checks cover the software and versions in an environment, and when the right feeds, credentials and scan settings are in place. On a newly disclosed issue, however, defenders can face a gap between an advisory and the checks available in their own scanner workflow. The agent helped us bridge that gap by converting technical clues into small web-level tests and applying them consistently across candidate services.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            This does not mean AI replaces OpenVAS, Nessus or other established scanners. Greenbone reported that its Enterprise Feed included PHP version checks beginning October 21, with further agent-based checks described on October 22. Whether those checks are present and active in any deployment depends on its feed, configuration and scan method. The narrower lesson is that a locally available agent can help investigate an emerging issue while a team verifies what its existing tools can detect.
+                        </p>
+
+                        <div class="rounded-2xl border border-outline-variant bg-surface-container-low p-6 my-8">
+                            <p class="font-headline text-2xl md:text-headline-md text-primary mb-3">What remains human</p>
+                            <p class="font-body text-body-md text-on-surface-variant leading-relaxed">
+                                People authorize the scope, interpret incomplete signals, confirm the installed software, assess business risk and decide how to remediate. Agentic testing accelerates the evidence-gathering loop; it does not remove accountability from it.
+                            </p>
+                        </div>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">The takeaway</h2>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-6">
+                            To me, the practical value of an AI penetration-testing agent is not that it knows every vulnerability in advance. It is that, when given an authorized scope and a credible advisory, it can help translate technical details into repeatable safe checks, run them across relevant systems and organize the evidence for people to validate.
+                        </p>
+                        <p class="font-body text-body-md text-on-surface-variant leading-relaxed mb-10">
+                            Established scanners remain essential, and their feeds should stay current. Agentic testing adds another capability: when a new risk is not yet producing an actionable result in a local scanning workflow, it helps engineers ask targeted questions of systems they are responsible for, then leaves final judgment and remediation where they belong - with humans.
+                        </p>
+
+                        <h2 class="font-headline text-3xl md:text-headline-lg text-on-background mt-10 mb-4">References</h2>
+                        <ul class="mb-10 space-y-3 font-body text-body-md text-on-surface-variant" style="list-style: disc; padding-left: 1.5rem;">
+                            <li><a class="text-primary hover:underline" href="https://www.php.net/archive/2026.php#2026-10-21-5" rel="noopener noreferrer" target="_blank">PHP security advisory and fixed releases</a></li>
+                            <li><a class="text-primary hover:underline" href="https://github.com/php/php-src/security/advisories/GHSA-w8hw-w9fx-j79w" rel="noopener noreferrer" target="_blank">CVE-2026-109618: RCE via out-of-memory corruption</a></li>
+                            <li><a class="text-primary hover:underline" href="https://github.com/php/php-src/security/advisories/GHSA-6wmf-4rv5-p3rp" rel="noopener noreferrer" target="_blank">CVE-2026-109619: RCE via stale global state</a></li>
+                            <li><a class="text-primary hover:underline" href="https://www.greenbone.net/en/blog/php2shell-remote-code-execution-cve-2026-109618-cve-2026-109619/" rel="noopener noreferrer" target="_blank">Greenbone's PHP2Shell update and scanner-feed coverage</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-12 px-gutter bg-surface-container-low border-t border-outline-variant" id="agentic-pentesting-cta">
+                <div class="max-w-7xl mx-auto rounded-3xl bg-[#e2e7ff] p-8 md:p-12 text-center text-on-surface relative overflow-hidden border border-outline-variant shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-[#1a45d2]/5 to-transparent"></div>
+                    <div class="relative z-10 max-w-5xl mx-auto">
+                        <p class="font-label text-label-sm uppercase tracking-[0.2em] text-primary mb-4">Safe Checks. Faster Triage. Human Judgment.</p>
+                        <h2 class="font-headline text-4xl md:text-display-lg text-center mb-4">Respond faster to <span class="text-primary">emerging vulnerabilities</span></h2>
+                        <p class="font-body text-body-lg text-on-surface-variant max-w-2xl mx-auto mb-8">
+                            Turn credible advisories into bounded, repeatable checks while experienced engineers retain control of validation and remediation.
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <a class="btn-primary" href="/contact.html">Plan your assessment</a>
+                            <a class="btn-secondary" href="/penetration-testing.html">Explore penetration testing</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer class="w-full py-12 px-4 md:px-8 lg:px-margin-desktop max-w-7xl mx-auto border-t border-outline-variant bg-surface" id="site-footer">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-16">
+            <div class="md:col-span-1">
+                <div class="h-10 mb-4 max-w-xs">
+                    <img alt="Tabiri logo" class="h-full w-auto object-contain object-left" width="161" height="77" loading="lazy" decoding="async" src="./assets/svg/logo.svg">
+                </div>
+                <p class="text-body-sm text-on-surface-variant max-w-xs">Empowering the modern enterprise with secure, agentic intelligence. Sovereign by design.</p>
+            </div>
+            <div id="footer-product-links">
+                <h3 class="font-label text-label-md text-primary mb-6 uppercase tracking-wider">PRODUCT</h3>
+                <ul class="space-y-4">
+                    <li><a class="footer-link" href="/case-studies.html">Case Studies</a></li>
+                    <li><a class="footer-link" href="/data-protection.html">Sovereign Node</a></li>
+                    <li><a class="footer-link" href="/managed-cybersecurity-services.html">CyberSecurity</a></li>
+                </ul>
+            </div>
+            <div id="footer-company-links">
+                <h3 class="font-label text-label-md text-primary mb-6 uppercase tracking-wider">COMPANY</h3>
+                <ul class="space-y-4">
+                    <li><a class="footer-link" href="/about.html">About Us</a></li>
+                    <li><a class="footer-link" href="/channel-partners.html">Partners</a></li>
+                    <li><a class="footer-link" href="/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-label text-label-md text-primary mb-6 uppercase tracking-wider">LEGAL</h3>
+                <ul class="space-y-4">
+                    <li><a class="footer-link" href="#privacy-policy">Privacy Policy</a></li>
+                    <li><a class="footer-link" href="#terms-of-service">Terms of Service</a></li>
+                    <li><a class="footer-link" href="#security-disclosure">Security Disclosure</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-outline-variant pt-8 flex flex-col md:flex-row justify-between items-center text-body-sm text-on-surface-variant">
+            <span>© 2026 Tabiri Analytics. Lexington, KY, USA.</span>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <span class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-node-green"></span> All Systems Operational</span>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollUpBtn" class="fixed bottom-6 right-6 z-50 hidden translate-y-4 opacity-0 rounded-full bg-blue-600 p-3 text-white shadow-lg transition-all duration-300 hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300" aria-label="Go to top">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+    </button>
+
+    <script src="./assets/js/analytics.js"></script>
+    <script src="./assets/js/mobile-nav.js"></script>
+    <script src="./assets/js/scroll-up.js"></script>
+    <script src="./assets/js/dropdown-nav.js"></script>
+</body>
+</html>
